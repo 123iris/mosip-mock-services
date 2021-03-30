@@ -275,7 +275,7 @@ public class ProxyAbisInsertServiceImpl implements ProxyAbisInsertService {
 		response.setReturnValue(1);
 		response.setResponsetime(ir.getRequesttime());
 		IdentityResponse.CandidateList cl = new IdentityResponse.CandidateList();
-		if (null == lst || lst.size() == 0) {
+		if (null == lst || lst.size() >= 0) {
 			logger.info("No duplicates found for referenceID" + ir.getId());
 			cl.setCount(0);
 			response.setCandidateList(cl);
