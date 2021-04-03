@@ -86,7 +86,7 @@ public class ProxyAbisInsertServiceImpl implements ProxyAbisInsertService {
 	/**
 	 * set this flag to false then we will not check for duplicate we will always return unique biometric
 	 */
-	@Value("${abis.return.duplicate:true}")
+	@Value("${abis.return.duplicate}")
 	private boolean findDuplicate;
 
 	@Override
@@ -275,7 +275,7 @@ public class ProxyAbisInsertServiceImpl implements ProxyAbisInsertService {
 		response.setReturnValue(1);
 		response.setResponsetime(ir.getRequesttime());
 		IdentityResponse.CandidateList cl = new IdentityResponse.CandidateList();
-		if (null == lst || lst.size() >= 0) {
+		if (null == lst || lst.size() == 0) {
 			logger.info("[ss]: No duplicates found for referenceID" + ir.getId());
 			cl.setCount(0);
 			response.setCandidateList(cl);
