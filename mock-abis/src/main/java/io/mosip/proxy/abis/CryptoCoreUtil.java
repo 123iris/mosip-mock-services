@@ -36,6 +36,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Component
 @PropertySource("classpath:partner.properties")
@@ -43,6 +45,8 @@ public class CryptoCoreUtil {
 
 	@Autowired
 	private Environment env;
+
+	private static final Logger logger = LoggerFactory.getLogger(Listener.class);
 
 	private final static String RSA_ECB_OAEP_PADDING = "RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING";
 
@@ -76,6 +80,7 @@ public class CryptoCoreUtil {
 
 	public String decryptCbeff(String responseData) throws Exception {
 		PrivateKeyEntry privateKey = getPrivateKeyEntryFromP12();
+		logger.info("[ss]: responseData "+ responseData);
 		byte[] responseBytes = org.apache.commons.codec.binary.Base64.decodeBase64(responseData);
 		byte[] deryptedCbeffData = decryptCbeffData(responseBytes, privateKey);
 		return new String(deryptedCbeffData);

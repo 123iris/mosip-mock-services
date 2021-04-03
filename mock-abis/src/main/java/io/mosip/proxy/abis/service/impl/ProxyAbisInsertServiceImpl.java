@@ -100,7 +100,7 @@ public class ProxyAbisInsertServiceImpl implements ProxyAbisInsertService {
 	/**
 	 * set this flag to false then we will not check for duplicate we will always return unique biometric
 	 */
-	@Value("${abis.return.duplicate:true}")
+	@Value("${abis.return.duplicate}")
 	private boolean findDuplicate;
 
 	@Override
