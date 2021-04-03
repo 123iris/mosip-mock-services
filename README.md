@@ -13,8 +13,8 @@
 	$ cd ../
 	$ docker build mock-abis/
 	$ docker images
-	$ docker tag a20396e09620 syedsalman041997/mock-abis:master
+	$ docker tag a20396e09620 syedsalman041997/mock-abis:0.0.3
 	$ docker images
 	$ docker login
-	$ docker push syedsalman041997/mock-abis:master
+	$ docker push syedsalman041997/mock-abis:0.0.3
 ```
